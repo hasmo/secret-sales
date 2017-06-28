@@ -1,5 +1,18 @@
-secretsales
-===========
+# SecretSales Console Application
 
-A Symfony project created on June 21, 2017, 5:38 pm.
-# secret-sales
+This simple console application consumes a text file and outputs the most common words.
+
+## Setup
+
+### Installation
+
+Just clone this repo and run composer install.
+
+    git clone ...
+    composer install
+ 
+### Run the command
+    bin/console secret-sales:consume-text
+    
+### Run the tests
+    vendor/bin/phpunit tests
