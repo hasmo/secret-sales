@@ -9,7 +9,7 @@ This simple console application consumes a text file and outputs the most common
 Just clone this repo and run composer install.
 
     git clone ...
-    composer install
+    composer install --no-interaction
  
 ### Run the command
     bin/console secret-sales:consume-text
