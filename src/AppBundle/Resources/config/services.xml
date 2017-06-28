@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="app.text_file_url"  type="string">
+            https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt
+        </parameter>
+    </parameters>
+
+    <services>
+        <!-- Text Consumer -->
+        <service id="app.text_consumer" class="Hassan\SecretSales\AppBundle\Text\Consume\UrlBasedTextConsumer">
+            <argument>%app.text_file_url%</argument>
+        </service>
+
+        <!-- Text Provider -->
+        <service id="app.text_processor" class="Hassan\SecretSales\AppBundle\Text\Provider\WordCountDisplayingTextProvider">
+            <argument type="service" id="app.text_consumer"/>
+        </service>
+
+        <!-- Command -->
+        <service id="app.consume_text_command" class="Hassan\SecretSales\AppBundle\Command\ConsumeTextCommand">
+            <argument type="service" id="app.text_processor"/>
+            <tag name="console.command"/>
+        </service>
+    </services>
+</container>
