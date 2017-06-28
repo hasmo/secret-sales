@@ -40,7 +40,7 @@
     },
     "scripts": {
         "symfony-scripts": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
         ],
         "post-install-cmd": [
             "@symfony-scripts"
@@ -60,8 +60,7 @@
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml",
-            "keep-outdated": true
+            "file": "app/config/parameters.yml"
         },
         "branch-alias": null
     }
